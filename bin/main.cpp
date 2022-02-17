@@ -17,31 +17,13 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#include "mainwindow.h"
+#include <QApplication>
 
-#include <QtWidgets/QMainWindow>
-
-namespace Ui {
-    class MainWindow;
-}
-
-class MainWindow : public QMainWindow
+int main(int argc, char* argv[])
 {
-    Q_OBJECT
-public:
-    MainWindow(QWidget *parent = 0);
-    ~MainWindow();
-
-
-protected:
-    void changeEvent(QEvent *e);
-
-private slots:
-    void findText();
-    void validRegExp();
-private:
-    Ui::MainWindow *ui;
-};
-
-#endif // MAINWINDOW_H
+    QApplication a(argc, argv);
+    MainWindow w;
+    w.show();
+    return a.exec();
+}
